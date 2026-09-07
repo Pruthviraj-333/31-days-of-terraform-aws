@@ -1,0 +1,4 @@
+# Sample variable definitions for Day 04 Remote Backend setup
+aws_region   = "us-east-1"
+environment  = "dev"
+project_name = "31-days-of-terraform"

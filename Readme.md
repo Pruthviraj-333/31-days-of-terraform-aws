@@ -31,7 +31,7 @@ The focus is on **learning by doing** rather than only reading documentation.
 | Day 01 | Introduction to Terraform | Completed | [View Day 01](./Day_01/Readme.md) |
 | Day 02 | Terraform Providers | Completed | [View Day 02](./Day_02/Readme.md) |
 | Day 03 | S3 Bucket & AWS Authentication | Completed | [View Day 03](./Day_03/Readme.md) |
-| Day 04 | Resources | Not Started | - |
+| Day 04 | State File Management & Remote Backend | Completed | [View Day 04](./Day_04/Readme.md) |
 | Day 05 | Variables | Not Started | - |
 | Day 06 | Outputs | Not Started | - |
 | Day 07 | Data Sources | Not Started | - |
@@ -159,10 +159,10 @@ The goal is not just to complete 31 days, but to build practical knowledge that 
 
 **Challenge:** 31 Days of Terraform
 
-**Current Status:** Day 03 Completed (`3 / 31`)
+**Current Status:** Day 04 Completed (`4 / 31`)
 
 ```text
-[###-----------------------------] 3 / 31 Days Completed
+[####----------------------------] 4 / 31 Days Completed
 ```
 
 ---
