@@ -341,15 +341,37 @@ Terraform provides a dedicated suite of subcommands to safely inspect and manipu
 | `terraform state rm` | Removes a resource from state tracking (resource remains running in AWS) | `terraform state rm aws_s3_bucket.app_data` |
 | `terraform force-unlock` | Manually releases a stuck lock ID if a process crashes abruptly | `terraform force-unlock <lock-id>` |
 
-### Verification of `terraform state list` Command Output:
+---
 
-```text
-aws_s3_bucket.app_data
-aws_s3_bucket_public_access_block.app_data_public_access
-aws_s3_bucket_server_side_encryption_configuration.app_data_encryption
-aws_s3_bucket_versioning.app_data_versioning
-random_id.app_suffix
-```
+## Screenshots
+
+### 1. S3 Remote State Bucket Verification (`aws s3 ls`)
+![S3 Remote State Bucket Verification](./screenshots/01-s3-remote-state-bucket-verification.png)
+
+---
+
+### 2. Terraform S3 Remote Backend Initialization (`terraform init`)
+![Terraform S3 Backend Initialization](./screenshots/02-terraform-init-s3-backend.png)
+
+---
+
+### 3. Terraform Execution Plan & State Lock Handling (`terraform plan`)
+![Terraform Plan with S3 State Locking](./screenshots/03-terraform-plan-s3-state-locking.png)
+
+---
+
+### 4. Terraform Apply Execution & Deployed Resource Outputs (`terraform apply`)
+![Terraform Apply Remote State and Outputs](./screenshots/04-terraform-apply-remote-state-outputs.png)
+
+---
+
+### 5. Remote State File Storage in Amazon S3 (`aws s3 ls`)
+![Remote tfstate File Verification in S3](./screenshots/05-aws-cli-remote-tfstate-verification.png)
+
+---
+
+### 6. State Management Commands (`terraform state list`)
+![Terraform State List Verification](./screenshots/06-terraform-state-list-command.png)
 
 ---
 
