@@ -342,6 +342,68 @@ terraform plan -var-file="prod.tfvars"
 
 ---
 
+## Screenshots
+
+### 1. Terraform Plan with Default Variables & tfvars (Initiation)
+![Terraform Plan with tfvars](./screenshots/01-terraform-plan-tfvars-start.png)
+
+---
+
+### 2. Terraform Plan Resource Evaluation (S3 Bucket & Attributes)
+![Terraform Plan Resources](./screenshots/02-terraform-plan-tfvars-resources.png)
+
+---
+
+### 3. Terraform Plan Outputs Preview (Tags, Bucket Name, Environment)
+![Terraform Plan Outputs Preview](./screenshots/03-terraform-plan-tfvars-outputs-preview.png)
+
+---
+
+### 4. Terraform Plan with CLI Override Flag (`-var="environment=production"`)
+![Terraform Plan CLI Override](./screenshots/04-terraform-plan-cli-override-start.png)
+
+---
+
+### 5. CLI Variable Override Resource Plan Evaluation
+![CLI Override Resource Plan](./screenshots/05-terraform-plan-cli-override-resources.png)
+
+---
+
+### 6. CLI Variable Override Outputs Preview
+![CLI Override Outputs](./screenshots/06-terraform-plan-cli-override-outputs.png)
+
+---
+
+### 7. Terraform Apply Execution Initiation
+![Terraform Apply Initiation](./screenshots/07-terraform-apply-initiation.png)
+
+---
+
+### 8. Terraform Apply Resource Construction Details
+![Terraform Apply Resource Details](./screenshots/08-terraform-apply-resource-details.png)
+
+---
+
+### 9. Terraform Apply Confirmation Prompt (`yes`)
+![Terraform Apply Confirmation](./screenshots/09-terraform-apply-confirmation.png)
+
+---
+
+### 10. Terraform Apply Completion & Displayed Output Values
+![Terraform Apply Complete & Outputs](./screenshots/10-terraform-apply-complete-outputs.png)
+
+---
+
+### 11. Querying Terraform Outputs (`terraform output`)
+![Terraform Output CLI Command](./screenshots/11-terraform-output-command.png)
+
+---
+
+### 12. Querying Terraform Outputs in JSON Format (`terraform output -json`)
+![Terraform Output JSON Format](./screenshots/12-terraform-output-json-format.png)
+
+---
+
 ## 📊 Diagrams
 
 ### 1. Variables Data Flow in Terraform
