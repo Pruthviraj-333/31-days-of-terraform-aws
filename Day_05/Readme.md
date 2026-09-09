@@ -404,6 +404,11 @@ terraform plan -var-file="prod.tfvars"
 
 ---
 
+### 13. AWS S3 Management Console Verification (Created Bucket)
+![AWS S3 Console Bucket Verification](./screenshots/13-aws-s3-console-bucket-created.png)
+
+---
+
 ## 📊 Diagrams
 
 ### 1. Variables Data Flow in Terraform
