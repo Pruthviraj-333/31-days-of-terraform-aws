@@ -1,0 +1,3 @@
+# Default variable values (automatically loaded by Terraform when named terraform.tfvars)
+environment = "demo"
+bucket_name = "terraform-demo-bucket"

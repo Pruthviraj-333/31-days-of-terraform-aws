@@ -1,0 +1,3 @@
+# Production environment overrides (use with: terraform plan -var-file="prod.tfvars")
+environment = "production"
+bucket_name = "prod-app-storage"
