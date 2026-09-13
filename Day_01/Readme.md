@@ -430,4 +430,4 @@ init → validate → plan → apply
 
 **Status:** Completed
 
-**Next:** Day 2 — Coming soon...
+**Next:** [Day 2 — Terraform Providers](../Day_02/Readme.md)

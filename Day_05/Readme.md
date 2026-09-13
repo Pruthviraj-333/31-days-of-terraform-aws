@@ -476,4 +476,4 @@ graph TD
 
 **Status:** Completed
 
-**Next:** Day 6 — Terraform Outputs & State Querying
+**Next:** [Day 6 — File Structure & Code Organization](../Day_06/Readme.md)

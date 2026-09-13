@@ -339,4 +339,4 @@ graph LR
 
 **Status:** Completed
 
-**Next:** Day 3 — Terraform Configuration Language (HCL Syntax, Blocks, Attributes)
+**Next:** [Day 3 — S3 Bucket & AWS Authentication](../Day_03/Readme.md)

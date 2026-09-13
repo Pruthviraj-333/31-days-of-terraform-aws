@@ -488,4 +488,4 @@ graph TD
 
 **Status:** Completed
 
-**Next:** Day 4 — Terraform Resources & Lifecycle Rules
+**Next:** [Day 4 — State File Management & Remote Backend](../Day_04/Readme.md)

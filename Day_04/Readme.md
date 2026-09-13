@@ -458,4 +458,4 @@ sequenceDiagram
 
 **Status:** Completed
 
-**Next:** Day 5 — Terraform Variables, Input Types & Validation Rules
+**Next:** [Day 5 — Terraform Variables (Input, Local & Output)](../Day_05/Readme.md)
