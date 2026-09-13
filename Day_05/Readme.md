@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 The Three Types of Terraform Variables
+## The Three Types of Terraform Variables
 
 Terraform classifies variables into three distinct categories based on their lifecycle, scope, and purpose:
 
@@ -38,12 +38,12 @@ Terraform classifies variables into three distinct categories based on their lif
 | **Purpose** | Parameterize and customize configs | Calculate and reuse intermediate values | Expose attributes after deployment |
 | **Declaration Block** | `variable "environment" {}` | `locals {}` | `output "bucket_arn" {}` |
 | **Origin** | Provided by user/CLI/tfvars/defaults | Computed internally within HCL code | Extracted from created cloud resources |
-| **Overridable?** | ✅ Yes (via CLI, `.tfvars`, Env vars) | ❌ No (calculated automatically) | ❌ No (derived post-apply) |
+| **Overridable?** | Yes (via CLI, `.tfvars`, Env vars) | No (calculated automatically) | No (derived post-apply) |
 | **Analogy** | Function parameters / arguments | Internal local variables in code | Function `return` values |
 
 ---
 
-## 📥 1. Input Variables in Detail (`variables.tf`)
+## 1. Input Variables in Detail (`variables.tf`)
 
 Input variables allow you to write reusable, modular Terraform code without hardcoding values (such as bucket prefixes, environment names, or AWS regions).
 
@@ -67,7 +67,7 @@ resource "aws_s3_bucket" "demo" {
 
 ---
 
-## ⚙️ 2. Local Values in Detail (`locals.tf`)
+## 2. Local Values in Detail (`locals.tf`)
 
 Local values (`locals`) assign a name to an expression, avoiding repetitive code and computing dynamic values from input variables and resource attributes.
 
@@ -100,7 +100,7 @@ resource "aws_s3_bucket" "demo" {
 
 ---
 
-## 📤 3. Output Variables in Detail (`output.tf`)
+## 3. Output Variables in Detail (`output.tf`)
 
 Output variables export key information after infrastructure is created. They allow DevOps engineers to inspect IDs, ARNs, endpoints, or pass values to external systems and CI/CD pipelines.
 
@@ -137,7 +137,7 @@ terraform output -json           # Print outputs formatted in JSON
 
 ---
 
-## ⚖️ Variable Precedence Hierarchy
+## Variable Precedence Hierarchy
 
 When the same input variable is defined in multiple places, Terraform resolves conflicts using a strict precedence order (**highest priority wins**):
 
@@ -157,7 +157,7 @@ When the same input variable is defined in multiple places, Terraform resolves c
 
 ---
 
-## 📁 Complete Configuration Code
+## Complete Configuration Code
 
 ### 1. `provider.tf`
 ```hcl
@@ -301,7 +301,7 @@ bucket_name = "prod-app-storage"
 
 ---
 
-## 🧪 Hands-On Practice: Variable Precedence Testing
+## Hands-On Practice: Variable Precedence Testing
 
 ### Test 1: Default Values
 Temporarily hide `terraform.tfvars` to test fallback to defaults declared in `variables.tf`:
@@ -409,7 +409,7 @@ terraform plan -var-file="prod.tfvars"
 
 ---
 
-## 📊 Diagrams
+## Diagrams
 
 ### 1. Variables Data Flow in Terraform
 
@@ -463,7 +463,7 @@ graph TD
 
 ---
 
-## 💡 Key Takeaways
+## Key Takeaways
 
 1. **Input Variables (`var.*`):** Function parameters that make configurations reusable across environments without code duplication.
 2. **Local Values (`local.*`):** Reusable computed expressions that simplify HCL maintenance.

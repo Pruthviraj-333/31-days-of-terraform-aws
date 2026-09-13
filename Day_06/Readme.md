@@ -15,7 +15,7 @@
 
 ---
 
-## 🏗️ 1. Terraform File Loading Mechanism
+## 1. Terraform File Loading Mechanism
 
 When Terraform runs in a working directory:
 
@@ -49,7 +49,7 @@ Working Directory (.tf files)
 
 ---
 
-## 📁 2. Recommended File Structure
+## 2. Recommended File Structure
 
 For standard single-environment or root-module infrastructure, follow this industry-standard structure:
 
@@ -85,7 +85,7 @@ Day_06/
 
 ---
 
-## 🧩 3. File Organization Principles
+## 3. File Organization Principles
 
 1. **Separation of Concerns**: Keep networking separate from storage, compute, and security. Editing an S3 bucket shouldn't risk syntax errors in your VPC configuration.
 2. **Logical Grouping**: Place closely coupled resources in the same file (e.g., `aws_route_table` and `aws_route_table_association` together in `vpc.tf`).
@@ -95,7 +95,7 @@ Day_06/
 
 ---
 
-## 💻 4. Practical Implementation (Code Files)
+## 4. Practical Implementation (Code Files)
 
 ### 1. `backend.tf`
 Defines Terraform version requirements, provider source mappings, and remote backend state settings:
@@ -408,7 +408,7 @@ tags = {
 
 ---
 
-## 🏢 5. Advanced File Organization Patterns
+## 5. Advanced File Organization Patterns
 
 ### Pattern A: Environment-Specific Structure
 Used when environments require completely independent state files and lifecycle management:
@@ -463,7 +463,7 @@ infrastructure/
 
 ---
 
-## ⚠️ 6. Common File Organization Mistakes
+## 6. Common File Organization Mistakes
 
 | Anti-Pattern | Why It Is Problematic | Recommended Fix |
 | :--- | :--- | :--- |
@@ -475,7 +475,7 @@ infrastructure/
 
 ---
 
-## 🛠️ 7. Useful Commands for File Management
+## 7. Useful Commands for File Management
 
 ```bash
 # 1. Format all Terraform files recursively
@@ -493,7 +493,7 @@ terraform apply
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### 1. Multi-File Project Directory Structure (`tree /f`)
 ![Project Directory Tree Structure](./screenshots/01-project-directory-tree-structure.png)
