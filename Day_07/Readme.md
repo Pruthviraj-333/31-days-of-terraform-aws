@@ -605,6 +605,116 @@ flowchart TD
 
 ---
 
+## 8. Verification & Screenshots
+
+The following screenshots capture the end-to-end execution, validation testing, deployment lifecycle, and AWS console verification for Day 07.
+
+### 1. Terraform Code Validation
+
+```bash
+terraform validate
+```
+
+![Terraform Validate Success](./screenshots/01-terraform-validate-success.png)
+
+---
+
+### 2. Custom Variable Validation Rule Testing
+
+Testing validation blocks by passing deliberately invalid values:
+
+#### VPC CIDR Validation Failure (`can(cidrhost(...))`)
+
+![Custom Validation Error - Invalid CIDR Block](./screenshots/02-terraform-custom-validation-error-cidr.png)
+
+#### Server Specification Disk Size & Instance Type Validation Failure
+
+![Custom Validation Error - Invalid Server Config](./screenshots/03-terraform-custom-validation-error-disk-size.png)
+
+---
+
+### 3. Execution Plan Inspection (`terraform plan`)
+
+Reviewing planned resource attributes across primitive, collection, and structural types:
+
+#### S3 Storage Bucket & Random Suffix Resource Plan
+
+![Terraform Plan S3 Resource](./screenshots/04-terraform-plan-s3-resource.png)
+
+#### S3 Server-Side Encryption & Public Access Block Plan
+
+![Terraform Plan S3 Encryption and Public Access Block](./screenshots/05-terraform-plan-s3-encryption-public-access-block.png)
+
+#### Security Group & Dynamic Ingress Rules Plan
+
+![Terraform Plan Security Group Ingress Rules](./screenshots/06-terraform-plan-security-group-ingress-rules.png)
+
+#### Public Subnet (Index 0 from Complex Object List)
+
+![Terraform Plan Public Subnet](./screenshots/07-terraform-plan-public-subnet.png)
+
+#### Private Subnet (Index 1 from Complex Object List)
+
+![Terraform Plan Private Subnet](./screenshots/08-terraform-plan-private-subnet.png)
+
+#### VPC Configuration & Resource Summary (Plan: 11 to add)
+
+![Terraform Plan VPC and Changes Summary](./screenshots/09-terraform-plan-vpc-and-changes-summary.png)
+
+#### Outputs Preview & Apply Confirmation Prompt
+
+![Terraform Plan Outputs Preview](./screenshots/10-terraform-plan-outputs-preview.png)
+
+---
+
+### 4. Terraform Apply Execution (`terraform apply`)
+
+Executing the deployment plan to provision all typed resources in AWS:
+
+#### Resource Provisioning in Progress
+
+![Terraform Apply Creating Resources](./screenshots/11-terraform-apply-creating-resources.png)
+
+#### Apply Completion Summary (11 Added)
+
+![Terraform Apply Complete Summary](./screenshots/12-terraform-apply-complete-summary.png)
+
+#### Typed Outputs Displayed Upon Apply Completion
+
+![Terraform Apply Complete Full Outputs](./screenshots/13-terraform-apply-complete-full-outputs.png)
+
+---
+
+### 5. Inspecting Outputs (`terraform output`)
+
+Querying the structured outputs after deployment:
+
+```bash
+terraform output
+```
+
+![Terraform Output Command](./screenshots/14-terraform-output-command.png)
+
+---
+
+### 6. AWS Management Console Verification
+
+Validating the deployed resources in the AWS Management Console (`us-east-1`):
+
+#### VPC Subnets View (`dev-day07-public-web-1` and `dev-day07-private-app-1`)
+
+![AWS VPC Subnets Console](./screenshots/15-aws-vpc-console-subnets-view.png)
+
+#### Security Groups View (`dev-day07-web-sg`)
+
+![AWS Security Groups Console](./screenshots/16-aws-vpc-console-security-groups.png)
+
+#### S3 Storage Bucket View (`dev-day07-storage-*`)
+
+![AWS S3 Buckets Console](./screenshots/17-aws-s3-console-buckets-view.png)
+
+---
+
 ## Key Takeaways
 
 1. **Explicit Types:** Always specify the `type` parameter for every input variable. Avoid generic unconstrained variables (`any`) unless building abstract helper modules.
@@ -618,3 +728,4 @@ flowchart TD
 ## Next Steps
 
 In **Day 08**, we will explore **Terraform Meta-Arguments & Dynamic Loops**, diving into `count`, `for_each`, `for` expressions, and `dynamic` blocks for flexible infrastructure provisioning.
+
