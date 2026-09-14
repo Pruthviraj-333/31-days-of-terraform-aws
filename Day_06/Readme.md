@@ -51,7 +51,7 @@ Working Directory (.tf files)
 
 ## 2. Recommended File Structure
 
-![Terraform File Structure Overview](./screenshots/00-terraform-file-structure-overview.png)
+![Terraform File Structure Overview](./screenshots/00-terraform-file-structure-architecture.png)
 
 For standard single-environment or root-module infrastructure, follow this industry-standard structure:
 
@@ -498,7 +498,7 @@ terraform apply
 ## Screenshots
 
 ### 1. Terraform File Structure Architectural Overview
-![Terraform File Structure Overview](./screenshots/00-terraform-file-structure-overview.png)
+![Terraform File Structure Overview](./screenshots/00-terraform-file-structure-architecture.png)
 
 ---
 
