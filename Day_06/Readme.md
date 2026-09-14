@@ -51,6 +51,8 @@ Working Directory (.tf files)
 
 ## 2. Recommended File Structure
 
+![Terraform File Structure Overview](./screenshots/00-terraform-file-structure-overview.png)
+
 For standard single-environment or root-module infrastructure, follow this industry-standard structure:
 
 ```text
@@ -495,82 +497,87 @@ terraform apply
 
 ## Screenshots
 
-### 1. Multi-File Project Directory Structure (`tree /f`)
+### 1. Terraform File Structure Architectural Overview
+![Terraform File Structure Overview](./screenshots/00-terraform-file-structure-overview.png)
+
+---
+
+### 2. Multi-File Project Directory Structure (`tree /f`)
 ![Project Directory Tree Structure](./screenshots/01-project-directory-tree-structure.png)
 
 ---
 
-### 2. Code Formatting & Validation (`terraform fmt` & `terraform validate`)
+### 3. Code Formatting & Validation (`terraform fmt` & `terraform validate`)
 ![Terraform Format and Validate](./screenshots/02-terraform-fmt-and-validate.png)
 
 ---
 
-### 3. Execution Plan Initiation (`terraform plan`)
+### 4. Execution Plan Initiation (`terraform plan`)
 ![Terraform Plan Execution Start](./screenshots/03-terraform-plan-execution-start.png)
 
 ---
 
-### 4. Plan Resource Changes — Internet Gateway & Route Table
+### 5. Plan Resource Changes — Internet Gateway & Route Table
 ![Terraform Plan Resource Details](./screenshots/04-terraform-plan-resource-details.png)
 
 ---
 
-### 5. Plan Resource Changes — S3 Storage Bucket & Subnets
+### 6. Plan Resource Changes — S3 Storage Bucket & Subnets
 ![Terraform Plan Storage and Subnets](./screenshots/05-terraform-plan-storage-and-subnets.png)
 
 ---
 
-### 6. Plan Resource Changes — Multi-AZ Public Subnets (AZ-1 & AZ-2)
+### 7. Plan Resource Changes — Multi-AZ Public Subnets (AZ-1 & AZ-2)
 ![Terraform Plan Multi-AZ Subnets](./screenshots/06-terraform-plan-multi-az-subnets.png)
 
 ---
 
-### 7. Plan Resource Changes — 3rd Public Subnet (AZ-3)
+### 8. Plan Resource Changes — 3rd Public Subnet (AZ-3)
 ![Terraform Plan Subnet 3 Details](./screenshots/07-terraform-plan-subnet3-details.png)
 
 ---
 
-### 8. Plan Resource Changes — VPC & Planned Outputs Summary
+### 9. Plan Resource Changes — VPC & Planned Outputs Summary
 ![Terraform Plan VPC and Outputs Summary](./screenshots/08-terraform-plan-vpc-and-outputs-summary.png)
 
 ---
 
-### 9. Terraform Apply Execution Initiation (`terraform apply -auto-approve`)
+### 10. Terraform Apply Execution Initiation (`terraform apply -auto-approve`)
 ![Terraform Apply Execution Start](./screenshots/09-terraform-apply-execution-start.png)
 
 ---
 
-### 10. Terraform Apply Completion & Structured Output Values
+### 11. Terraform Apply Completion & Structured Output Values
 ![Terraform Apply Outputs Summary](./screenshots/10-terraform-apply-outputs-summary.png)
 
 ---
 
-### 11. State Tracking & Output Inspection (`terraform state list` & `terraform output`)
+### 12. State Tracking & Output Inspection (`terraform state list` & `terraform output`)
 ![Terraform State List and Output](./screenshots/11-terraform-state-list-and-output.png)
 
 ---
 
-### 12. Complete Output Variables Query (`terraform output`)
+### 13. Complete Output Variables Query (`terraform output`)
 ![Terraform Output All Variables](./screenshots/12-terraform-output-all-variables.png)
 
 ---
 
-### 13. AWS Management Console — VPC Overview (`aws-terraform-course-demo-vpc`)
+### 14. AWS Management Console — VPC Overview (`aws-terraform-course-demo-vpc`)
 ![AWS VPC Console VPC Details](./screenshots/13-aws-vpc-console-vpc-details.png)
 
 ---
 
-### 14. AWS Management Console — 3 Public Subnets Across Availability Zones
+### 15. AWS Management Console — 3 Public Subnets Across Availability Zones
 ![AWS VPC Console Public Subnets](./screenshots/14-aws-vpc-console-public-subnets.png)
 
 ---
 
-### 15. AWS Management Console — Public Route Table & Explicit Subnet Associations
+### 16. AWS Management Console — Public Route Table & Explicit Subnet Associations
 ![AWS VPC Console Route Table](./screenshots/15-aws-vpc-console-route-table.png)
 
 ---
 
-### 16. AWS Management Console — Amazon S3 Bucket Created
+### 17. AWS Management Console — Amazon S3 Bucket Created
 ![AWS S3 Console Bucket Created](./screenshots/16-aws-s3-console-bucket-created.png)
 
 ---
