@@ -34,8 +34,8 @@ The focus is on **learning by doing** rather than only reading documentation.
 | Day 04 | State File Management & Remote Backend | Completed | [View Day 04](./Day_04/Readme.md) |
 | Day 05 | Terraform Variables (Input, Local & Output) | Completed | [View Day 05](./Day_05/Readme.md) |
 | Day 06 | File Structure & Code Organization | Completed | [View Day 06](./Day_06/Readme.md) |
-| Day 07 | Data Sources | Not Started | - |
-| Day 08 | Terraform State | Not Started | - |
+| Day 07 | Type Constraints in Terraform | Completed | [View Day 07](./Day_07/Readme.md) |
+| Day 08 | Meta-Arguments & Dynamic Loops (count, for_each) | Not Started | - |
 | Day 09 | State Management | Not Started | - |
 | Day 10 | Terraform Modules | Not Started | - |
 | Day 11 | Module Structure | Not Started | - |
@@ -159,10 +159,10 @@ The goal is not just to complete 31 days, but to build practical knowledge that 
 
 **Challenge:** 31 Days of Terraform
 
-**Current Status:** Day 06 Completed (`6 / 31`)
+**Current Status:** Day 07 Completed (`7 / 31`)
 
 ```text
-[######--------------------------] 6 / 31 Days Completed
+[#######-------------------------] 7 / 31 Days Completed
 ```
 
 ---

@@ -1,0 +1,49 @@
+# ==============================================================================
+# Day 07: Variable Template (Safe for Version Control)
+# 31 Days of Terraform (AWS)
+# ==============================================================================
+
+# 1. Primitive Types
+aws_region        = "us-east-1"
+environment       = "dev" # Allowed values: dev, staging, production, demo
+vpc_cidr          = "10.0.0.0/16"
+instance_count    = 2
+enable_encryption = true
+
+# 2. Collection Types
+availability_zones = ["us-east-1a", "us-east-1b"]
+ingress_ports      = [80, 443, 22]
+
+resource_tags = {
+  Owner       = "DevOps-Team"
+  Department  = "Cloud-Engineering"
+  Project     = "Type-Constraints-Demo"
+  Environment = "dev"
+  Day         = "Day_07"
+  ManagedBy   = "Terraform"
+}
+
+# 3. Structural Types (Tuple & Object)
+network_spec = ["public-tier", 1, true]
+
+app_server_config = {
+  instance_type         = "t3.micro"
+  disk_size_gb          = 20
+  monitoring            = true
+  backup_retention_days = 7
+}
+
+subnet_definitions = [
+  {
+    name      = "public-web-1"
+    cidr      = "10.0.1.0/24"
+    az        = "us-east-1a"
+    is_public = true
+  },
+  {
+    name      = "private-app-1"
+    cidr      = "10.0.2.0/24"
+    az        = "us-east-1b"
+    is_public = false
+  }
+]
