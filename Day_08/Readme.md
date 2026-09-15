@@ -599,6 +599,110 @@ flowchart TD
 
 ---
 
+## 11. Verification & Screenshots
+
+The following screenshots capture the execution plan, resource addressing comparisons, deployment lifecycle, and output transformations for Day 08.
+
+### 1. Execution Plan Inspection (`terraform plan`)
+
+Reviewing the planned resource creations and addressing formats across all meta-arguments:
+
+#### IAM User Creation from Set (`for_each` — `alice-devops`)
+
+![Plan IAM User Alice](./screenshots/01-terraform-plan-iam-users-alice.png)
+
+#### IAM User Creation from Set (`for_each` — `bob-developer`)
+
+![Plan IAM User Bob](./screenshots/02-terraform-plan-iam-users-bob.png)
+
+#### IAM User Creation from Set (`for_each` — `charlie-qa`)
+
+![Plan IAM User Charlie](./screenshots/03-terraform-plan-iam-users-charlie.png)
+
+#### Explicit Dependency Storage Bucket (`depends_on`)
+
+![Plan Depends On Audit Log](./screenshots/04-terraform-plan-depends-on-audit-log.png)
+
+#### S3 Bucket Creation via `count` (Index `[0]` — Logs)
+
+![Plan Count Bucket Index 0 Logs](./screenshots/05-terraform-plan-count-bucket-0-logs.png)
+
+#### S3 Bucket Tags & Index Metadata (Index `[0]`)
+
+![Plan Count Bucket Index 0 Tags](./screenshots/06-terraform-plan-count-bucket-0-tags.png)
+
+#### S3 Bucket Creation via `count` (Index `[1]` — Media)
+
+![Plan Count Bucket Index 1 Media](./screenshots/07-terraform-plan-count-bucket-1-media.png)
+
+#### S3 Bucket Creation via `count` (Index `[2]` — Backups)
+
+![Plan Count Bucket Index 2 Backups](./screenshots/08-terraform-plan-count-bucket-2-backups.png)
+
+#### S3 Bucket Tags & Index Metadata (Index `[2]`)
+
+![Plan Count Bucket Index 2 Tags](./screenshots/09-terraform-plan-count-bucket-2-tags.png)
+
+#### Multi-Region S3 Bucket (`provider = aws.west` targeting `us-west-2`)
+
+![Plan Provider Alias DR West](./screenshots/10-terraform-plan-provider-alias-dr-west.png)
+
+#### S3 Bucket Creation via `for_each` Map (`app-assets`)
+
+![Plan For Each App Assets](./screenshots/11-terraform-plan-for-each-app-assets.png)
+
+#### S3 Bucket Tags & Purpose Metadata (`app-assets`)
+
+![Plan For Each App Assets Tags](./screenshots/12-terraform-plan-for-each-app-assets-tags.png)
+
+#### S3 Bucket Creation via `for_each` Map (`archive`)
+
+![Plan For Each Archive](./screenshots/13-terraform-plan-for-each-archive.png)
+
+#### S3 Bucket Creation via `for_each` Map (`raw-data`)
+
+![Plan For Each Raw Data](./screenshots/14-terraform-plan-for-each-raw-data.png)
+
+#### S3 Bucket with Custom `lifecycle` Configuration
+
+![Plan Lifecycle Demo Bucket](./screenshots/15-terraform-plan-lifecycle-demo-bucket.png)
+
+#### S3 Bucket Versioning & Plan Summary (Plan: 15 to add)
+
+![Plan Versioning Suffix Summary](./screenshots/16-terraform-plan-versioning-suffix-summary.png)
+
+#### Output Projections Preview
+
+![Plan Outputs Preview](./screenshots/17-terraform-plan-outputs-preview.png)
+
+---
+
+### 2. Terraform Apply Execution (`terraform apply`)
+
+Executing the deployment plan to provision all 15 resources across multiple regions:
+
+#### Provisioning Lifecycle & Apply Complete Summary (15 Added)
+
+![Terraform Apply Creating and Complete](./screenshots/18-terraform-apply-creating-and-complete.png)
+
+#### Typed Output Projections on Apply Completion
+
+![Terraform Apply Full Outputs](./screenshots/19-terraform-apply-full-outputs.png)
+
+---
+
+### 3. Inspecting Outputs (`terraform output`)
+
+Querying the splat expressions (`[*]`), map transformations (`for`), and filtered list projections:
+
+```bash
+terraform output
+```
+
+![Terraform Output Command Inspection](./screenshots/20-terraform-output-command-inspection.png)
+
+---
+
 ## Key Takeaways
 
 1. **`for_each` over `count`:** Prefer `for_each` for real-world cloud resources because key-based addressing prevents accidental destructive recreation when list elements are removed or reordered.
@@ -612,3 +716,4 @@ flowchart TD
 ## Next Steps
 
 In **Day 09**, we will explore **Advanced State Management**, diving into `terraform state` subcommands (`list`, `show`, `mv`, `rm`), state locking, and state disaster recovery.
+
