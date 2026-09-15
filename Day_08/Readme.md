@@ -703,6 +703,30 @@ terraform output
 
 ---
 
+### 4. AWS Management Console Verification
+
+Verifying the live resources provisioned across services and regions in the AWS Console:
+
+#### S3 Buckets Overview — Multi-Tier & Multi-Region Buckets (`us-east-1` & `us-west-2`)
+
+Shows the buckets created via `count` (`-cnt-*`), `for_each` (`-fe-*`), `depends_on` (`-audit-log`), and `provider = aws.west` (`-dr-west-*` in US West Oregon):
+
+![AWS S3 Console Multi-Region Buckets View](./screenshots/21-aws-s3-console-multi-region-buckets-view.png)
+
+#### S3 Buckets Overview — Lifecycle Demo Bucket
+
+Shows the drift-protected bucket configured with `create_before_destroy` and `ignore_changes`:
+
+![AWS S3 Console Lifecycle Bucket View](./screenshots/22-aws-s3-console-lifecycle-bucket-view.png)
+
+#### IAM Users Overview — Users Provisioned via `for_each` on Set
+
+Shows the team IAM users created deterministically from the string set (`alice-devops`, `bob-developer`, `charlie-qa`):
+
+![AWS IAM Console Users View](./screenshots/23-aws-iam-console-users-for-each-view.png)
+
+---
+
 ## Key Takeaways
 
 1. **`for_each` over `count`:** Prefer `for_each` for real-world cloud resources because key-based addressing prevents accidental destructive recreation when list elements are removed or reordered.
