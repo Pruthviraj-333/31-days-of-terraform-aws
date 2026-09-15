@@ -1,0 +1,47 @@
+# ==============================================================================
+# Day 08: Example Variable Values Template
+# Copy this file to terraform.tfvars and customize for your environment
+# ==============================================================================
+
+aws_region       = "us-east-1"
+secondary_region = "us-west-2"
+environment      = "dev"
+project_name     = "day08-meta-args"
+
+count_bucket_names = [
+  "logs",
+  "media",
+  "backups"
+]
+
+for_each_storage_tiers = {
+  app-assets = {
+    purpose        = "Static web and application media assets"
+    versioning     = true
+    lifecycle_days = 90
+  }
+  raw-data = {
+    purpose        = "Ingested raw telemetry datasets"
+    versioning     = false
+    lifecycle_days = 30
+  }
+  archive = {
+    purpose        = "Long-term compliance and audit archives"
+    versioning     = true
+    lifecycle_days = 365
+  }
+}
+
+iam_user_names = [
+  "alice-devops",
+  "bob-developer",
+  "charlie-qa"
+]
+
+resource_tags = {
+  Owner       = "DevOps-Team"
+  ManagedBy   = "Terraform"
+  Project     = "Terraform-Meta-Arguments"
+  Day         = "Day_08"
+  CostCenter  = "CC-108"
+}
