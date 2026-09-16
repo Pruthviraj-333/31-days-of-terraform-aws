@@ -36,7 +36,7 @@ The focus is on **learning by doing** rather than only reading documentation.
 | Day 06 | File Structure & Code Organization | Completed | [View Day 06](./Day_06/Readme.md) |
 | Day 07 | Type Constraints in Terraform | Completed | [View Day 07](./Day_07/Readme.md) |
 | Day 08 | Meta-Arguments & Dynamic Loops (count, for_each) | Completed | [View Day 08](./Day_08/Readme.md) |
-| Day 09 | State Management | Not Started | - |
+| Day 09 | Terraform Lifecycle Meta-arguments (AWS) | Completed | [View Day 09](./Day_09/Readme.md) |
 | Day 10 | Terraform Modules | Not Started | - |
 | Day 11 | Module Structure | Not Started | - |
 | Day 12 | Input Variables and Outputs | Not Started | - |

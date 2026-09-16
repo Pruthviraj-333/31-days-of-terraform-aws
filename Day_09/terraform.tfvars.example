@@ -1,0 +1,26 @@
+# ==============================================================================
+# Day 09: Example Variable Values Template
+# Copy this file to terraform.tfvars and customize for your environment
+# ==============================================================================
+
+aws_region           = "us-east-1"
+environment          = "dev"
+project_name         = "day09-lifecycle"
+compliance_framework = "SOC2"
+app_version          = "1.0.0"
+vpc_cidr             = "10.0.0.0/16"
+
+allowed_regions = [
+  "us-east-1",
+  "us-east-2",
+  "us-west-2",
+  "eu-west-1"
+]
+
+resource_tags = {
+  Owner       = "DevOps-Team"
+  ManagedBy   = "Terraform"
+  Project     = "Lifecycle-Meta-Arguments"
+  Day         = "Day_09"
+  CostCenter  = "CC-109"
+}
