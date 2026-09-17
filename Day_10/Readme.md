@@ -658,7 +658,93 @@ output "expressions_demonstration_summary" {
 
 ---
 
-## 6. Key Takeaways
+## 6. Verification & Screenshots
+
+### 1. Terraform Syntax Validation (`terraform validate`)
+Verification that all configuration syntax, dynamic block semantics, and conditional expressions are valid:
+
+![Terraform Validate Success](./screenshots/01-terraform-validate-success.png)
+
+---
+
+### 2. Dev Mode Plan - Application Instance Evaluation
+Execution plan evaluating `var.environment == "dev"`, provisioning a single `t3.micro` EC2 node with basic monitoring disabled:
+
+![Terraform Plan Dev Instance](./screenshots/02-terraform-plan-dev-instance.png)
+
+---
+
+### 3. Dev Mode Plan - VPC & Subnet Expansion
+Execution plan detailing the VPC, random suffix generator, and 10 total resources to create:
+
+![Terraform Plan Dev VPC and Subnets](./screenshots/03-terraform-plan-dev-vpc-subnets.png)
+
+---
+
+### 4. Dev Mode Plan - Outputs Preview & Splat Expressions
+Execution plan output resolution preview demonstrating splat attributes (`public_subnet_*`, `app_instance_*`) and conditional disabled bastion:
+
+![Terraform Plan Outputs Preview](./screenshots/04-terraform-plan-outputs-preview.png)
+
+---
+
+### 5. Terraform Apply Execution
+Initiating `terraform apply` to provision the VPC, subnets, dynamic security groups, and compute cluster:
+
+![Terraform Apply In Progress](./screenshots/05-terraform-apply-initiate.png)
+
+---
+
+### 6. Deployment Completion & Initial Outputs
+Successful completion of all 10 resources with application instance ARNs and IDs:
+
+![Terraform Apply Complete](./screenshots/06-terraform-apply-complete.png)
+
+---
+
+### 7. Splat Outputs & Expressions Summary Map
+Full structured output map showing splat extraction across subnets, dynamic rule counts, and bastion disabled status:
+
+![Terraform Apply Outputs Splat](./screenshots/07-terraform-apply-outputs-splat.png)
+
+---
+
+### 8. AWS Management Console - Dynamic Security Group Inbound Rules
+AWS VPC Console showing the security group with all 4 ingress rules (Ports 443, 22, 80, 8080) dynamically generated:
+
+![AWS VPC Security Group Dynamic Inbound Rules](./screenshots/08-aws-vpc-console-security-group-dynamic-rules.png)
+
+---
+
+### 9. AWS Management Console - Multi-AZ Public Subnets
+AWS VPC Console verifying the 2 public subnets deployed across availability zones `us-east-1a` (10.0.1.0/24) and `us-east-1b` (10.0.2.0/24):
+
+![AWS VPC Subnets Multi-AZ](./screenshots/09-aws-vpc-console-subnets-multi-az.png)
+
+---
+
+### 10. AWS Management Console - EC2 Application Node
+AWS EC2 Console confirming the application instance `dev-day10-expressions-app-node-1` running with `t3.micro`:
+
+![AWS EC2 Console App Instance](./screenshots/10-aws-ec2-console-app-instance.png)
+
+---
+
+### 11. Production Scale-Up Plan & Bastion Feature Toggle
+Execution plan verifying conditional expressions under `environment = "prod"` and `enable_bastion = true` (scaling to 3 nodes, `t3.medium`, enabled monitoring, and bastion):
+
+![Terraform Plan Production Scale-Up](./screenshots/11-terraform-plan-prod-scaleup-bastion.png)
+
+---
+
+### 12. Clean State Teardown (`terraform destroy`)
+Successful teardown of all 10 AWS resources to maintain a clean environment and eliminate cloud costs:
+
+![Terraform Destroy Complete](./screenshots/12-terraform-destroy-clean-state.png)
+
+---
+
+## 7. Key Takeaways
 
 1. **Ternary Expressions for Clean Code:** Use ternary conditionals (`condition ? true_val : false_val`) to adapt configurations across environments without duplicating code files.
 2. **Dynamic Blocks for Nested Schemas:** Use dynamic blocks specifically for repeating child blocks inside resources (like security group rules or EBS mappings). Avoid overusing them for simple, static child blocks.
@@ -668,7 +754,7 @@ output "expressions_demonstration_summary" {
 
 ---
 
-## 7. Commands Reference
+## 8. Commands Reference
 
 | Command | Purpose |
 |---|---|
@@ -684,3 +770,4 @@ output "expressions_demonstration_summary" {
 ## Next Steps
 
 In **Day 11**, we will explore **Terraform Built-in Functions**, including string manipulation (`format`, `join`, `replace`), collection functions (`merge`, `concat`, `slice`, `lookup`), and filesystem functions (`file`, `templatefile`) to build production-grade automation workflows.
+
