@@ -1,0 +1,48 @@
+# Example Variable Definitions for Day 10
+# Copy this file to terraform.tfvars and customize values.
+
+aws_region                 = "us-east-1"
+environment                = "dev" # Options: dev, staging, prod
+project_name               = "day10-expressions"
+vpc_cidr                   = "10.0.0.0/16"
+public_subnet_count        = 2
+enable_bastion             = false
+enable_detailed_monitoring = false
+
+ingress_rules = [
+  {
+    port        = 80
+    protocol    = "tcp"
+    description = "HTTP web traffic"
+    cidr_blocks = ["0.0.0.0/0"]
+  },
+  {
+    port        = 443
+    protocol    = "tcp"
+    description = "HTTPS secure web traffic"
+    cidr_blocks = ["0.0.0.0/0"]
+  },
+  {
+    port        = 22
+    protocol    = "tcp"
+    description = "SSH administrative access"
+    cidr_blocks = ["10.0.0.0/16"]
+  }
+]
+
+egress_rules = [
+  {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    description = "Allow all outbound traffic"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+]
+
+resource_tags = {
+  Owner     = "DevOps-Team"
+  ManagedBy = "Terraform"
+  Project   = "Dynamic-Blocks-And-Expressions"
+  Day       = "Day_10"
+}
