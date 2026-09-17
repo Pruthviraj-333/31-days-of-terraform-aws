@@ -51,8 +51,8 @@ The `lifecycle` block allows cloud engineers to customize this default behavior 
 ## 2. `create_before_destroy` (Zero-Downtime Deployments)
 
 ### Default Behavior vs. `create_before_destroy`:
-- **Default:** `Destroy` (old resource) ➔ `Create` (new resource) — Causes service interruption.
-- **With `create_before_destroy = true`:** `Create` (new resource) ➔ `Update references` ➔ `Destroy` (old resource).
+- **Default:** `Destroy` (old resource) -> `Create` (new resource) — Causes service interruption.
+- **With `create_before_destroy = true`:** `Create` (new resource) -> `Update references` -> `Destroy` (old resource).
 
 ### Example: Security Groups & Launch Templates
 When updating security group attributes that require recreation (such as changing `name`), the new security group must exist before the old one is detached:
@@ -579,6 +579,92 @@ flowchart TD
 
 ---
 
+## 10. Verification & Screenshots
+
+### 1. Terraform Syntax Validation (`terraform validate`)
+Verification that all configuration syntax, lifecycle blocks, precondition, and postcondition assertions are valid:
+
+![Terraform Validate Success](./screenshots/01-terraform-validate-success.png)
+
+---
+
+### 2. Precondition Validation Failure Test
+Demonstration of `lifecycle { precondition { ... } }` catching an unauthorized deployment region before resource creation:
+
+![Terraform Precondition Validation Failure](./screenshots/02-terraform-precondition-failure-region.png)
+
+---
+
+### 3. Plan Generation & `ignore_changes` Configuration
+Terraform execution plan detailing resource creation and `ignore_changes` on dynamic external tags (`LastModifiedBy`, `ExternalScanner`):
+
+![Terraform Plan with Ignore Changes](./screenshots/03-terraform-plan-app-data-ignore-changes.png)
+
+---
+
+### 4. Plan Summary & Outputs Preview
+Execution plan confirming 9 resources to add with full output resolution preview:
+
+![Terraform Plan Summary & Outputs Preview](./screenshots/04-terraform-plan-summary-outputs-preview.png)
+
+---
+
+### 5. Terraform Apply Execution
+Parallel provisioning of VPC, random suffix generator, release metadata, and lifecycle-managed S3 buckets:
+
+![Terraform Apply In Progress](./screenshots/05-terraform-apply-in-progress.png)
+
+---
+
+### 6. Deployment Completion & Structured Outputs
+Successful deployment of all 9 resources with structured output summary of lifecycle meta-arguments:
+
+![Terraform Apply Complete with Outputs](./screenshots/06-terraform-apply-complete-outputs.png)
+
+---
+
+### 7. AWS Management Console — S3 Lifecycle Buckets
+AWS S3 console verifying the provisioned buckets across app-data, compliance, critical-vault, regional, and versioned storage:
+
+![AWS S3 Console Lifecycle Buckets](./screenshots/07-aws-s3-console-lifecycle-buckets.png)
+
+---
+
+### 8. AWS Management Console — Zero-Downtime Security Group
+AWS VPC console showing the security group created with `name_prefix` to facilitate `create_before_destroy`:
+
+![AWS VPC Security Group Console](./screenshots/08-aws-vpc-console-security-group-cbd.png)
+
+---
+
+### 9. Dependency Replacement (`replace_triggered_by`)
+Execution plan demonstrating automatic replacement of `aws_s3_bucket.version_triggered_storage` triggered by changes in `terraform_data.app_release`:
+
+![Terraform Plan Replace Triggered By](./screenshots/09-terraform-plan-replace-triggered-by.png)
+
+---
+
+### 10. Destruction Attempt with Protected Resource
+Initiating `terraform destroy` against infrastructure containing `prevent_destroy = true`:
+
+![Terraform Destroy Plan with Protected Resource](./screenshots/10-terraform-destroy-prevent-destroy-plan.png)
+
+---
+
+### 11. `prevent_destroy` Enforcement Error
+Terraform halting the destruction plan immediately with `Error: Instance cannot be destroyed` on `aws_s3_bucket.critical_vault`:
+
+![Terraform Prevent Destroy Enforcement](./screenshots/11-terraform-destroy-prevent-destroy-error.png)
+
+---
+
+### 12. Clean State Teardown (`terraform destroy`)
+Successful teardown of all 9 resources and verification of empty state after disabling `prevent_destroy`:
+
+![Terraform Destroy Complete and Clean State](./screenshots/12-terraform-destroy-success-clean-state.png)
+
+---
+
 ## Key Takeaways
 
 1. **Zero-Downtime:** Always pair `create_before_destroy = true` with `name_prefix` to eliminate service disruption during resource replacement.
@@ -592,3 +678,4 @@ flowchart TD
 ## Next Steps
 
 In **Day 10**, we will explore **Terraform Dynamic Blocks & Expressions**, diving into repeated nested blocks, `for` expressions, and conditional block generation for complex cloud networking and compute infrastructure.
+
